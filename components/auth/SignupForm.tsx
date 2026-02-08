@@ -23,12 +23,13 @@ export default function SignupForm() {
     const password = formData.get("password") as string;
 
    const { data, error } = await supabase.auth.signUp({
-  email: email.trim(),
+  email,
   password,
   options: {
-    emailRedirectTo: `${window.location.origin}`,
+    emailRedirectTo: "https://your-project.vercel.app",
   },
 });
+
 
 
     setLoading(false);
