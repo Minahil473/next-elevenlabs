@@ -22,10 +22,14 @@ export default function SignupForm() {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+   const { data, error } = await supabase.auth.signUp({
+  email: email.trim(),
+  password,
+  options: {
+    emailRedirectTo: `${window.location.origin}`,
+  },
+});
+
 
     setLoading(false);
 
