@@ -159,9 +159,9 @@ export default function CreaterSection() {
       <p className="mb-4 text-center">
         Create content faster with <span className="font-semibold">Voice Cloning</span>
       </p>
-      <Image src="/michael.webp" alt="Michael" width={250} height={60} className="mb-4" />
+      <Image src="/images/michael.webp" alt="Michael" width={250} height={60} className="mb-4" />
       <div className="flex gap-3 mt-auto items-center">
-        <Image src="/michael.webp" alt="Michael" width={24} height={24} className="rounded-full" />
+        <Image src="/images/michael.webp" alt="Michael" width={24} height={24} className="rounded-full" />
         <span className="font-medium">Michael Caine</span>
       </div>
     </div>
@@ -171,9 +171,9 @@ export default function CreaterSection() {
       <p className="mb-4 text-center">
         Voice over your videos with <span className="font-semibold">Text to Speech</span>
       </p>
-      <Image src="/huberman.webp" alt="Huberman" width={250} height={60} className="mb-4" />
+      <Image src="/images/huberman.webp" alt="Huberman" width={250} height={60} className="mb-4" />
       <div className="flex gap-3 mt-auto items-center">
-        <Image src="/huberman.webp" alt="Huberman" width={24} height={24} className="rounded-full" />
+        <Image src="/images/huberman.webp" alt="Huberman" width={24} height={24} className="rounded-full" />
         <span className="font-medium">Andrew Huberman</span>
       </div>
     </div>
