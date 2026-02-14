@@ -25,7 +25,7 @@ export default function SignupForm() {
   email,
   password,
   options: {
-    emailRedirectTo: `${window.location.origin}/dashboard`,
+    emailRedirectTo: `${window.location.origin}/auth/callback`, // Redirect here after email confirmation
   },
 });
 

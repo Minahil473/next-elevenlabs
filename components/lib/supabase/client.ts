@@ -1,9 +1,15 @@
 "use client";
 
 import { createBrowserClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "./types"; // optional, if you have a Database type
+import { Database } from "./types"; // optional
 
 export const supabase = createBrowserClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  {
+    auth: {
+      persistSession: true,       // keeps the session in local storage
+      detectSessionInUrl: true,   // automatically reads token from email confirmation link
+    },
+  }
 );
