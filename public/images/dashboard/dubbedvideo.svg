@@ -1,0 +1,83 @@
+<svg
+  width="108"
+  height="108"
+  viewBox="0 0 108 108"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  className="group dark:invert dark:hue-rotate-180 dark:mix-blend-plus-lighter"
+>
+  {/* Main rotated rectangle */}
+  <g className="md:group-hover:scale-110 origin-center transition-all duration-200 ease-in-out">
+    <rect
+      x="25.7578"
+      y="25.1987"
+      width="67.8246"
+      height="51.5787"
+      rx="8"
+      transform="rotate(4.85741 25.7578 25.1987)"
+      fill="url(#pattern0)"
+      className="dark:invert dark:hue-rotate-180"
+    />
+  </g>
+
+  {/* Green rectangle with white lines */}
+  <g className="md:group-hover:scale-110 md:group-hover:-rotate-3 origin-center transition-all duration-200 ease-in-out">
+    <rect
+      x="9"
+      y="51"
+      width="42"
+      height="16"
+      rx="5"
+      fill="#2DD28D"
+      stroke="#F3F4F6"
+      strokeWidth="2"
+      className="md:group-hover:stroke-[#E5E7EB] transition-all duration-200 ease-in-out"
+    />
+    {/* lines inside */}
+    <line x1="15.47" y1="62.18" x2="15.47" y2="55.81" stroke="white" strokeWidth="1.63" strokeLinecap="round"/>
+    <line x1="18.73" y1="62.08" x2="18.73" y2="55.91" stroke="white" strokeWidth="1.63" strokeLinecap="round"/>
+    <line x1="21.99" y1="61.01" x2="21.99" y2="56.98" stroke="white" strokeWidth="1.63" strokeLinecap="round"/>
+    {/* Add other lines similarly */}
+  </g>
+
+  {/* Bottom rectangle */}
+  <g className="md:group-hover:scale-110 md:group-hover:translate-y-1 origin-center transition-all duration-200 ease-in-out">
+    <rect
+      x="33"
+      y="73"
+      width="30"
+      height="16"
+      rx="5"
+      fill="#2DD28D"
+      stroke="#F3F4F6"
+      strokeWidth="2"
+      className="md:group-hover:stroke-[#E5E7EB] transition-all duration-200 ease-in-out"
+    />
+    <line x1="40.25" y1="84.25" x2="40.25" y2="77.75" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <line x1="43.45" y1="83.15" x2="43.45" y2="78.84" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <line x1="46.65" y1="83.85" x2="46.65" y2="78.14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+  </g>
+
+  {/* Circle on top */}
+  <g className="md:group-hover:scale-110 md:group-hover:rotate-6 origin-center transition-all duration-200 ease-in-out">
+    <rect
+      x="66"
+      y="17"
+      width="32"
+      height="32"
+      rx="16"
+      fill="#2DD28D"
+      stroke="#F3F4F6"
+      strokeWidth="2.5"
+      className="md:group-hover:stroke-[#E5E7EB] transition-all duration-200 ease-in-out"
+    />
+  </g>
+
+  {/* Patterns */}
+  <defs>
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use href="#image0" transform="scale(0.00249377 0.00327924)" />
+    </pattern>
+    <image id="image0" width="401" height="305" href="/app_assets/_next/static/media/dubbing.36b749ae.png" />
+  </defs>
+</svg>

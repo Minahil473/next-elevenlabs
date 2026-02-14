@@ -40,7 +40,7 @@ export default function SignupForm() {
     }
 
     // Signup successful → redirect
-    router.push("/");
+    router.push("/dashboard");
   };
 
   // Google OAuth signup
@@ -70,7 +70,7 @@ export default function SignupForm() {
         <button
           type="button"
           onClick={signUpWithGoogle}
-          className="relative w-full border border-[#A6A6AE] rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
+          className="relative w-full border border-[#A6A6AE] rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center cursor-pointer justify-center"
         >
           <Image
             src="/images/google.png"
@@ -99,7 +99,7 @@ export default function SignupForm() {
 
       {/* Password */}
       <div className="mt-6 space-y-2">
-        <label className="text-sm font-medium">Password</label>
+        <label className="text-sm font-medium cursor-pointer">Password</label>
         <div className="relative">
           <input
             name="password"
@@ -129,7 +129,7 @@ autofill:bg-white autofill:text-black"
       <button
         type="submit"
         disabled={loading}
-        className="w-full mt-6 bg-[#A6A6AE] text-white py-3 rounded-xl text-sm font-medium disabled:opacity-50"
+        className="w-full mt-6 bg-[#A6A6AE] text-white py-3 cursor-pointer rounded-xl hover:bg-[#323235] text-sm font-medium disabled:opacity-50"
       >
         {loading ? "Signing up..." : "Sign up"}
       </button>
@@ -137,7 +137,7 @@ autofill:bg-white autofill:text-black"
       {/* Footer */}
       <p className="text-center text-sm text-[#323235] mt-6">
         Already registered?{" "}
-        <Link href="/auth/login" className="text-[#323235] font-medium underline">
+        <Link href="/auth/login" className="text-[#323235] cursor-pointer font-medium underline">
           Sign in
         </Link>
       </p>

@@ -34,7 +34,7 @@ export default function LoginForm() {
     }
 
     // Login successful → redirect
-    router.push("/");
+    router.push("/dashboard");
   };
 
   // Google OAuth login
@@ -50,10 +50,8 @@ export default function LoginForm() {
   };
 
   return (
-    <form
-      onSubmit={handleLogin}
-      className="w-full max-w-lg mx-auto px-4 py-8"
-    >
+    <form onSubmit={handleLogin} className="w-full max-w-md mx-auto px-6 py-10">
+
       {/* Heading */}
       <h1 className="text-center text-[#0F0F10] text-2xl font-semibold mb-6">
         Welcome back
@@ -64,7 +62,7 @@ export default function LoginForm() {
         <button
           type="button"
           onClick={signInWithGoogle}
-          className="relative w-full border border-[#A6A6AE] rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
+          className="relative w-full border border-[#A6A6AE] cursor-pointer rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
         >
           <Image
             src="/images/google.png"
@@ -78,7 +76,7 @@ export default function LoginForm() {
 
         <button
           type="button"
-          className="relative w-full border border-[#A6A6AE] rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
+          className="relative w-full border border-[#A6A6AE] cursor-pointer rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
         >
           <Image
             src="/images/apple.png"
@@ -92,7 +90,7 @@ export default function LoginForm() {
 
         <button
           type="button"
-          className="w-full border border-[#A6A6AE] rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50"
+          className="w-full border border-[#A6A6AE] cursor-pointer rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50"
         >
           Sign in with SSO
         </button>
@@ -149,7 +147,7 @@ export default function LoginForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full mt-6 bg-[#A6A6AE] text-white py-2.5 rounded-xl text-sm font-medium disabled:opacity-50"
+        className="w-full mt-6 bg-[#A6A6AE] text-white py-2.5 rounded-xl text-sm hover:bg-[#323235] cursor-pointer font-medium disabled:opacity-50"
       >
         {loading ? "Signing in..." : "Sign in"}
       </button>
