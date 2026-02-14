@@ -170,7 +170,7 @@ export default function DashboardLayout({
             <button
               onClick={async () => {
                 await supabase.auth.signOut();
-                router.push("/auth/login");
+                router.push("/");
               }}
               className="text-sm px-3 py-1 border rounded-lg hover:bg-gray-100 transition"
             >

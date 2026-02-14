@@ -8,18 +8,16 @@ export default function AuthCallback() {
   const router = useRouter();
 
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) router.push("/dashboard");
-      else router.push("/auth/login");
+    const handleCallback = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) {
+        router.push("/dashboard"); // now go to dashboard
+      } else {
+        router.push("/auth/login");
+      }
     };
-
-    checkSession();
+    handleCallback();
   }, [router]);
 
-  return (
-    <div className="flex items-center justify-center h-screen text-gray-700">
-      <p>Verifying your account...</p>
-    </div>
-  );
+  return <div>Loading...</div>;
 }
