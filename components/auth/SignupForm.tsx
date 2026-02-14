@@ -13,7 +13,6 @@ export default function SignupForm() {
 
   const router = useRouter();
 
-  // Email/password signup
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -26,11 +25,9 @@ export default function SignupForm() {
   email,
   password,
   options: {
-    emailRedirectTo: "https://your-project.vercel.app",
+    emailRedirectTo: `${window.location.origin}/dashboard`,
   },
 });
-
-
 
     setLoading(false);
 
@@ -39,54 +36,39 @@ export default function SignupForm() {
       return;
     }
 
-    // Signup successful → redirect
-    router.push("/dashboard");
+    // Show confirmation message
+    alert("Signup successful! Please check your email to confirm before logging in.");
+
+    // Redirect to login page instead of dashboard
+    router.push("/auth/login");
   };
 
-  // Google OAuth signup
   const signUpWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}`,
-      },
+      options: { redirectTo: `${window.location.origin}/dashboard` },
     });
 
     if (error) alert(error.message);
   };
 
   return (
-    <form
-      onSubmit={handleSignup}
-      className="w-full max-w-md mx-auto px-6 py-10"
-    >
-      {/* Heading */}
-      <h1 className="text-center text-2xl font-semibold mb-8">
-        Create an account
-      </h1>
+    <form onSubmit={handleSignup} className="w-full max-w-md mx-auto px-6 py-10">
+      <h1 className="text-center text-2xl font-semibold mb-8">Create an account</h1>
 
-      {/* OAuth buttons */}
       <div className="space-y-3">
         <button
           type="button"
           onClick={signUpWithGoogle}
           className="relative w-full border border-[#A6A6AE] rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center cursor-pointer justify-center"
         >
-          <Image
-            src="/images/google.png"
-            alt="Google"
-            width={20}
-            height={20}
-            className="absolute left-4"
-          />
+          <Image src="/images/google.png" alt="Google" width={20} height={20} className="absolute left-4" />
           Sign in with Google
         </button>
       </div>
 
-      {/* Divider */}
       <div className="my-8 border-t border-gray-200" />
 
-      {/* Email */}
       <div className="space-y-2">
         <label className="text-sm font-medium">Email</label>
         <input
@@ -97,7 +79,6 @@ export default function SignupForm() {
         />
       </div>
 
-      {/* Password */}
       <div className="mt-6 space-y-2">
         <label className="text-sm font-medium cursor-pointer">Password</label>
         <div className="relative">
@@ -106,9 +87,7 @@ export default function SignupForm() {
             type={showPassword ? "text" : "password"}
             autoComplete="new-password"
             required
-            className="w-full bg-white border border-[#A6A6AE] rounded-xl px-4 py-2.5 text-sm pr-10
-focus:outline-none focus:ring-1 focus:ring-black
-autofill:bg-white autofill:text-black"
+            className="w-full bg-white border border-[#A6A6AE] rounded-xl px-4 py-2.5 text-sm pr-10 focus:outline-none focus:ring-1 focus:ring-black autofill:bg-white autofill:text-black"
           />
 
           {showPassword ? (
@@ -125,7 +104,6 @@ autofill:bg-white autofill:text-black"
         </div>
       </div>
 
-      {/* Sign up button */}
       <button
         type="submit"
         disabled={loading}
@@ -134,7 +112,6 @@ autofill:bg-white autofill:text-black"
         {loading ? "Signing up..." : "Sign up"}
       </button>
 
-      {/* Footer */}
       <p className="text-center text-sm text-[#323235] mt-6">
         Already registered?{" "}
         <Link href="/auth/login" className="text-[#323235] cursor-pointer font-medium underline">
@@ -142,10 +119,8 @@ autofill:bg-white autofill:text-black"
         </Link>
       </p>
 
-      {/* Terms */}
       <p className="text-xs text-gray-500 mt-6">
-        By creating an account, you agree to our{" "}
-        <span className="underline cursor-pointer">Terms</span> and{" "}
+        By creating an account, you agree to our <span className="underline cursor-pointer">Terms</span> and{" "}
         <span className="underline cursor-pointer">Privacy Policy</span>.
       </p>
     </form>

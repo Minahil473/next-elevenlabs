@@ -12,7 +12,6 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Email/password login
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -33,17 +32,20 @@ export default function LoginForm() {
       return;
     }
 
+    // Check if email is confirmed
+    if (!data.user?.email_confirmed_at) {
+      alert("Please confirm your email before logging in.");
+      return;
+    }
+
     // Login successful → redirect
     router.push("/dashboard");
   };
 
-  // Google OAuth login
   const signInWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}`,
-      },
+      options: { redirectTo: `${window.location.origin}` },
     });
 
     if (error) alert(error.message);
@@ -51,26 +53,17 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleLogin} className="w-full max-w-md mx-auto px-6 py-10">
-
-      {/* Heading */}
       <h1 className="text-center text-[#0F0F10] text-2xl font-semibold mb-6">
         Welcome back
       </h1>
 
-      {/* OAuth buttons */}
       <div className="space-y-3">
         <button
           type="button"
           onClick={signInWithGoogle}
           className="relative w-full border border-[#A6A6AE] cursor-pointer rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
         >
-          <Image
-            src="/images/google.png"
-            alt="Google"
-            width={20}
-            height={20}
-            className="absolute left-4"
-          />
+          <Image src="/images/google.png" alt="Google" width={20} height={20} className="absolute left-4" />
           Sign in with Google
         </button>
 
@@ -78,13 +71,7 @@ export default function LoginForm() {
           type="button"
           className="relative w-full border border-[#A6A6AE] cursor-pointer rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 flex items-center justify-center"
         >
-          <Image
-            src="/images/apple.png"
-            alt="Apple"
-            width={20}
-            height={20}
-            className="absolute left-4"
-          />
+          <Image src="/images/apple.png" alt="Apple" width={20} height={20} className="absolute left-4" />
           Sign in with Apple
         </button>
 
@@ -96,10 +83,8 @@ export default function LoginForm() {
         </button>
       </div>
 
-      {/* Divider */}
       <div className="my-6 border-t border-gray-200" />
 
-      {/* Email */}
       <div className="space-y-2">
         <label className="text-sm font-medium">Email</label>
         <input
@@ -111,7 +96,6 @@ export default function LoginForm() {
         />
       </div>
 
-      {/* Password */}
       <div className="mt-4 space-y-2">
         <div className="flex justify-between items-center">
           <label className="text-sm font-medium">Password</label>
@@ -128,7 +112,6 @@ export default function LoginForm() {
             required
             className="w-full bg-white border border-black rounded-xl px-4 py-2.5 text-sm pr-10 focus:outline-none focus:ring-1 focus:ring-black"
           />
-
           {showPassword ? (
             <EyeOff
               className="w-5 h-5 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
@@ -143,7 +126,6 @@ export default function LoginForm() {
         </div>
       </div>
 
-      {/* Sign in button */}
       <button
         type="submit"
         disabled={loading}
@@ -152,7 +134,6 @@ export default function LoginForm() {
         {loading ? "Signing in..." : "Sign in"}
       </button>
 
-      {/* Footer */}
       <p className="text-center text-sm text-gray-600 mt-6">
         Don&apos;t have an account?{" "}
         <Link href="/auth/signup" className="text-black font-medium underline">
