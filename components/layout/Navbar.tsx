@@ -6,13 +6,13 @@ import { supabase } from "../lib/supabase/client";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
 
   // Get user session
   useEffect(() => {
     const getUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user);
+      const { data } = await supabase.auth.getSession();
+      setUser(data?.session?.user ?? null);
     };
 
     getUser();
